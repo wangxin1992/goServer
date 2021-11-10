@@ -15,5 +15,7 @@ func main() {
 	l.InsertAfter("second", first) // 在first后边插入一个元素
 	//为啥每次都要username和password呢
 	fmt.Println("每次都要密码，鬼东西")
+	// 因为没配置ssh key
+	//这回OK了，在提交试试
 
 }
