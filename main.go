@@ -1,9 +1,15 @@
 package main
 
-import (
-	"fmt"
-)
+import "fmt"
 
 func main() {
-	fmt.Println("你好, go 世界!")
+	recursive(0)
+}
+
+func recursive(i int) {
+	i++
+	if i < 10 {
+		fmt.Println(i)
+		recursive(i)
+	}
 }
