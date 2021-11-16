@@ -1,20 +1,18 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"io/ioutil"
+	"net/http"
+)
 
 func main() {
-	ch := make(chan int)
-	go func() {
-		fmt.Println("hello world")
-		ch <- 1
-	}()
-	<-ch
+	urls := fmt.Sprintf("https://restapi.amap.com/v5/ip?key=e93f35e859dfc4efc1f2bae4ac222cf2&type=4&ip=%s", "223.104.213.126")
+	response, _ := http.Get(urls)
+	body, _ := ioutil.ReadAll(response.Body)
+	defer response.Body.Close()
+	fmt.Println(string(body))
+
 }
 
-func recursive(i int) {
-	i++
-	if i < 10 {
-		fmt.Println(i)
-		recursive(i)
-	}
-}
+//
